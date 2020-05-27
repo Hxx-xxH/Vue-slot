@@ -213,7 +213,7 @@ components: {
 ```javascript
 components: {
 	currentUser: {
-		template: `<div><slot>Tom</slot></div>`,
+		template: `<div><h3>后备内容</h3><slot>Tom</slot></div>`,
 	}
 }
 ```
@@ -222,7 +222,7 @@ components: {
 
 <img src=".\Vue-slot新旧写法.assets\image-20200527225434252.png" alt="image-20200527225434252" style="zoom:50%;" />
 
-###### 当组件内添加内容:
+###### 当组件内添加内容替换后备内容:
 
 ```html
 <current-user>
@@ -233,3 +233,57 @@ components: {
 ###### render效果如下:
 
 <img src=".\Vue-slot新旧写法.assets\image-20200527225959953.png" alt="image-20200527225959953" style="zoom:50%;" />
+
+##### 4.编译作用域(scope)
+
+当用data作为后备内容时
+
+###### 父组件代码如下:
+
+```html
+<current-user>
+</current-user>
+```
+
+###### 子组件代码如下:
+
+```javascript
+components: {
+	currentUser: {
+		template: `<div><h3>后备内容</h3><slot>{{user.firstName}}</slot></div>`,
+		data(){
+			return {
+				user:{
+					firstName:"Li",
+					lastName:"Lei"
+				}
+			}
+		}
+	}
+}
+```
+
+###### render效果如下:
+
+<img src=".\Vue-slot新旧写法.assets\image-20200527231515226.png" alt="image-20200527231515226" style="zoom:50%;" />
+
+###### 当组件内添加内容用{{user.lastName}}替换后备内容:
+
+```html
+<current-user>
+	{{user.lastName}}
+</current-user>
+```
+
+###### render效果如下:
+
+<img src=".\Vue-slot新旧写法.assets\image-20200527231839192.png" alt="image-20200527231839192" style="zoom:70%;" />
+
+此时{{user.lastName}}无法被编译,因为lastName是子组件模板中的内容,在父组件模板中是访问不到的.
+
+作为一条规则，请记住：
+
+##### 父级模板里的所有内容都是在父级作用域中编译的；子模板里的所有内容都是在子作用域中编译的。
+
+##### 5-1.作用域插槽(scoped slots) - 旧
+
