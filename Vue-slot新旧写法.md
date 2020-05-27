@@ -53,7 +53,7 @@ components: {
 
 ###### render效果如下:
 
-<img src="C:\Users\HSJ\Desktop\markdown\Vue-slot新旧写法\Vue-slot新旧写法.assets\image-20200527201022025.png" alt="image-20200527201022025" style="zoom:50%;" />
+<img src="./Vue-slot新旧写法.assets/image-20200527201022025.png" style="zoom:50%;" />
 
 ##### 1-2.默认插槽 - 旧
 
