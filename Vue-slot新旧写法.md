@@ -184,9 +184,7 @@ components: {
 </base-layout>
 ```
 
-
-
-##### 子组件中代码如下:
+###### 子组件中代码如下:
 
 ```javascript
 components: {
@@ -199,4 +197,27 @@ components: {
 
 <img src=".\Vue-slot新旧写法.assets\image-20200527202229484.png" style="zoom:50%;" />
 
-##### 3-1.
+##### 3.后备内容
+
+有时为一个插槽设置具体的后备 (也就是默认的) 内容是很有用的，它只会在没有提供内容的时候被渲染。例如:
+
+###### 父组件代码如下:
+
+```html
+<current-user>
+</current-user>
+```
+
+###### 子组件代码如下:
+
+```javascript
+components: {
+	currentUser: {
+		template: `<div><slot>Tom</slot></div>`,
+	}
+}
+```
+
+###### render效果如下:
+
+<img src=".\Vue-slot新旧写法.assets\image-20200527225434252.png" alt="image-20200527225434252" style="zoom:50%;" />
