@@ -2,7 +2,7 @@
 
 #### 前言
 
-`v-slot` 指令自 Vue 2.6.0 起被引入，提供更好的支持 `slot` 和 `slot-scope` attribute 的 API 替代方案。在接下来所有的 2.x 版本中 `slot` 和 `slot-scope` attribute 仍会被支持，但已经被官方废弃且不会出现在 Vue 3 中。
+`v-slot` 指令自 Vue 2.6.0 起被引入，提供更好的支持 `slot` 和 `slot-scope` attribute 的 API 替代方案,v-slot整合了slot和slot-scope。在接下来所有的 2.x 版本中 `slot` 和 `slot-scope` attribute 仍会被支持，但已经被官方废弃且不会出现在 Vue 3 中。
 
 #### slot
 
@@ -287,3 +287,28 @@ components: {
 
 ##### 5-1.作用域插槽(scoped slots) - 旧
 
+为了让父组件模板中能访问到user,添加如下代码:
+
+```html
+<current-user>
+	<template slot="default" slot-scope="slotProps">
+        {{ slotProps.user.lastName }}
+	</template>
+</current-user>
+```
+
+这里的 `slot="default"` 可以被忽略为隐性写法：
+
+```html
+<current-user>
+	<template slot-scope="slotProps">
+        {{ slotProps.user.lastName }}
+	</template>
+</current-user>
+```
+
+这里的 `slot-scope` 声明了被接收的 prop 对象会作为 `slotProps` 变量存在于 `<template>` 作用域中。你可以像命名 JavaScript 函数参数一样随意命名 `slotProps`。
+
+###### render效果如下:
+
+<img src=".\Vue-slot新旧写法.assets\image-20200527234556050.png" alt="image-20200527234556050" style="zoom:50%;" />
