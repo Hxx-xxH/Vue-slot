@@ -53,7 +53,7 @@ components: {
 
 ###### render效果如下:
 
-<img src="C:\Users\HSJ\Desktop\markdown\Vue-slot新旧写法\Vue-slot新旧写法.assets\image-20200527201022025.png" alt="image-20200527201022025" style="zoom:50%;" />
+<img src=".\Vue-slot新旧写法.assets\image-20200527201022025.png" alt="image-20200527201022025" style="zoom:50%;" />
 
 ##### 1-2.默认插槽 - 旧
 
@@ -88,7 +88,7 @@ components: {
 
 ###### render效果如下:
 
-<img src="C:\Users\HSJ\Desktop\markdown\Vue-slot新旧写法\Vue-slot新旧写法.assets\image-20200527202229484.png" alt="image-20200527202229484" style="zoom:50%;" />
+<img src=".\Vue-slot新旧写法.assets\image-20200527202229484.png" alt="image-20200527202229484" style="zoom:50%;" />
 
 ##### 2-1.具名插槽-新
 
@@ -130,20 +130,24 @@ components: {
 
 ```javascript
 components: {
-					"base-layout": {
-						template: `<div><slot name="header"></slot><slot name="footer"></slot></div>`,
-						data() {
-							return {
-								msg: "hello"
-							}
+				"base-layout": {
+					template: `<div><slot name="header"></slot><slot name="footer"></slot></div>`,
+					data() {
+						return {
+							msg: "hello"
 						}
 					}
 				}
+			}
 ```
 
+###### render效果如下:
 
+<img src=".\Vue-slot新旧写法.assets\image-20200527201022025.png" style="zoom:50%;" />
 
 ##### 2-2.默认插槽-新
+
+
 
 ###### 父组件中代码如下:
 
