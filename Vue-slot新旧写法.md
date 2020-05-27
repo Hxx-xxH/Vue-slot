@@ -221,3 +221,15 @@ components: {
 ###### render效果如下:
 
 <img src=".\Vue-slot新旧写法.assets\image-20200527225434252.png" alt="image-20200527225434252" style="zoom:50%;" />
+
+###### 当组件内添加内容:
+
+```html
+<current-user>
+    Jerry
+</current-user>
+```
+
+###### render效果如下:
+
+<img src=".\Vue-slot新旧写法.assets\image-20200527225959953.png" alt="image-20200527225959953" style="zoom:50%;" />
