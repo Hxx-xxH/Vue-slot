@@ -164,7 +164,29 @@ components: {
 </base-layout>
 ```
 
-###### 子组件中代码如下:
+##### 然而，如果你希望更明确一些，仍然可以在一个 `<template>` 中包裹默认插槽(#default)的内容：
+
+```html
+<base-layout>
+  <template v-slot:header>
+    <h1>Here might be a page title</h1>
+  </template>
+
+  <template v-slot:default>
+  	<h3>默认插槽演示</h3>
+    <p>A paragraph for the main content.</p>
+    <p>And another one.</p>
+  </template>
+
+  <template v-slot:footer>
+    <p>Here's some contact info</p>
+  </template>
+</base-layout>
+```
+
+
+
+##### 子组件中代码如下:
 
 ```javascript
 components: {
@@ -176,3 +198,5 @@ components: {
 ```
 
 <img src=".\Vue-slot新旧写法.assets\image-20200527202229484.png" style="zoom:50%;" />
+
+##### 3-1.
