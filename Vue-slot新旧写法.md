@@ -96,14 +96,15 @@ components: {
 
 ```html
 <base-layout>
-  <template v-slot:header>
+  <template #header>
     <h1>Here might be a page title</h1>
   </template>
 
+  <h3>默认插槽演示</h3>
   <p>A paragraph for the main content.</p>
   <p>And another one.</p>
 
-  <template v-slot:footer>
+  <template #footer>
     <p>Here's some contact info</p>
   </template>
 </base-layout>
@@ -117,6 +118,7 @@ components: {
     <h1>Here might be a page title</h1>
   </template>
 
+  <h3>默认插槽演示</h3>
   <p>A paragraph for the main content.</p>
   <p>And another one.</p>
 
@@ -130,15 +132,10 @@ components: {
 
 ```javascript
 components: {
-				"base-layout": {
-					template: `<div><slot name="header"></slot><slot name="footer"></slot></div>`,
-					data() {
-						return {
-							msg: "hello"
-						}
-					}
-				}
-			}
+		"base-layout": {
+			template: `<div><slot name="header"></slot><slot name="footer"></slot></div>`,
+		}
+	}
 ```
 
 ###### render效果如下:
@@ -147,14 +144,35 @@ components: {
 
 ##### 2-2.默认插槽-新
 
-
+`<template>` 元素中的所有内容都将会被传入相应的插槽。任何没有被包裹在带有 `v-slot` 的 `<template>` 中的内容都会被视为**默认插槽**的内容。
 
 ###### 父组件中代码如下:
 
 ```vue
 <base-layout>
+  <template #header>
+    <h1>Here might be a page title</h1>
+  </template>
+
   <h3>默认插槽演示</h3>
   <p>A paragraph for the main content.</p>
   <p>And another one.</p>
+
+  <template #footer>
+    <p>Here's some contact info</p>
+  </template>
 </base-layout>
 ```
+
+###### 子组件中代码如下:
+
+```javascript
+components: {
+        baseLayout: {
+            template: ` <div> <slot> </slot></div > `,
+            }
+        }
+    }
+```
+
+<img src=".\Vue-slot新旧写法.assets\image-20200527202229484.png" style="zoom:50%;" />
