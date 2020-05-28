@@ -1,12 +1,10 @@
-### Vue-slot新旧写法笔记
+## Vue-slot新旧语法笔记
 
 #### 前言
 
 `v-slot` 指令自 Vue 2.6.0 起被引入，提供更好的支持 `slot` 和 `slot-scope` attribute 的 API 替代方案,v-slot整合了slot和slot-scope。在接下来所有的 2.x 版本中 `slot` 和 `slot-scope` attribute 仍会被支持，但已经被官方废弃且不会出现在 Vue 3 中。
 
-#### slot
-
-##### 1-1.具名插槽-旧
+#### 1-1.具名插槽(named slots) - 旧
 
 ###### 父组件中的代码如下:
 
@@ -26,7 +24,7 @@
 </base-layout>
 ```
 
-##### 或
+###### 或
 
 ```vue
 <base-layout>
@@ -53,9 +51,9 @@ components: {
 
 ###### render效果如下:
 
-<img src="./Vue-slot新旧写法.assets/image-20200527201022025.png" style="zoom:50%;" />
+<img src="./Vue-slot comparison.assets/image-20200527201022025.png" style="zoom:25%;" />
 
-##### 1-2.默认插槽 - 旧
+#### 1-2.默认插槽(default slots) - 旧
 
 1-1中注释的代码其实是一个未命名插槽，也就是**默认插槽**，捕获所有未被匹配的内容。
 
@@ -88,9 +86,9 @@ components: {
 
 ###### render效果如下:
 
-<img src=".\Vue-slot新旧写法.assets\image-20200527202229484.png" alt="image-20200527202229484" style="zoom:50%;" />
+<img src=".\Vue-slot comparison.assets\image-20200527202229484.png" alt="image-20200527202229484" style="zoom: 25%;" />
 
-##### 2-1.具名插槽-新
+#### 2-1.具名插槽(named slots) - 新
 
 ###### 父组件代码如下:
 
@@ -110,7 +108,7 @@ components: {
 </base-layout>
 ```
 
-##### 或(缩写 v-slot: = #)
+###### 或(缩写 v-slot: = #)
 
 ```html
 <base-layout>
@@ -140,9 +138,9 @@ components: {
 
 ###### render效果如下:
 
-<img src=".\Vue-slot新旧写法.assets\image-20200527201022025.png" style="zoom:50%;" />
+<img src=".\Vue-slot comparison.assets\image-20200527201022025.png" style="zoom: 25%;" />
 
-##### 2-2.默认插槽-新
+#### 2-2.默认插槽(default slots)-新
 
 `<template>` 元素中的所有内容都将会被传入相应的插槽。任何没有被包裹在带有 `v-slot` 的 `<template>` 中的内容都会被视为**默认插槽**的内容。
 
@@ -164,7 +162,7 @@ components: {
 </base-layout>
 ```
 
-##### 然而，如果你希望更明确一些，仍然可以在一个 `<template>` 中包裹默认插槽(#default)的内容：
+**然而**，如果你希望更明确一些，仍然可以在一个 `<template>` 中包裹默认插槽(#default)的内容：
 
 ```html
 <base-layout>
@@ -195,9 +193,9 @@ components: {
     }
 ```
 
-<img src=".\Vue-slot新旧写法.assets\image-20200527202229484.png" style="zoom:50%;" />
+<img src=".\Vue-slot comparison.assets\image-20200527202229484.png" style="zoom: 25%;" />
 
-##### 3.后备内容
+#### 3.后备内容(Fallback Content)
 
 有时为一个插槽设置具体的后备 (也就是默认的) 内容是很有用的，它只会在没有提供内容的时候被渲染。例如:
 
@@ -213,14 +211,14 @@ components: {
 ```javascript
 components: {
 	currentUser: {
-		template: `<div><h3>后备内容</h3><slot>Tom</slot></div>`,
+		template: `<div><h3>后备内容演示</h3><slot>Tom</slot></div>`,
 	}
 }
 ```
 
 ###### render效果如下:
 
-<img src=".\Vue-slot新旧写法.assets\image-20200527225434252.png" alt="image-20200527225434252" style="zoom:50%;" />
+<img src=".\Vue-slot comparison.assets\image-20200528135514962.png" alt="image-20200528135514962" style="zoom: 25%;" />
 
 ###### 当组件内添加内容替换后备内容:
 
@@ -232,9 +230,9 @@ components: {
 
 ###### render效果如下:
 
-<img src=".\Vue-slot新旧写法.assets\image-20200527225959953.png" alt="image-20200527225959953" style="zoom:50%;" />
+<img src=".\Vue-slot comparison.assets\image-20200528135655090.png" alt="image-20200528135655090" style="zoom: 25%;" />
 
-##### 4.编译作用域(scope)
+#### 4.编译作用域(compilation scope)
 
 当用data作为后备内容时
 
@@ -250,7 +248,7 @@ components: {
 ```javascript
 components: {
 	currentUser: {
-		template: `<div><h3>后备内容</h3><slot>{{user.firstName}}</slot></div>`,
+		template: `<div><h3>后备内容演示</h3><slot>{{user.firstName}}</slot></div>`,
 		data(){
 			return {
 				user:{
@@ -265,7 +263,7 @@ components: {
 
 ###### render效果如下:
 
-<img src=".\Vue-slot新旧写法.assets\image-20200527231515226.png" alt="image-20200527231515226" style="zoom:50%;" />
+<img src=".\Vue-slot comparison.assets\image-20200528135802139.png" alt="image-20200528135802139" style="zoom:25%;" />
 
 ###### 当组件内添加内容用{{user.lastName}}替换后备内容:
 
@@ -277,15 +275,15 @@ components: {
 
 ###### render效果如下:
 
-<img src=".\Vue-slot新旧写法.assets\image-20200527231839192.png" alt="image-20200527231839192" style="zoom:70%;" />
+<img src=".\Vue-slot comparison.assets\image-20200527231839192.png" alt="image-20200527231839192" style="zoom: 25%;" />
 
 此时{{user.lastName}}无法被编译,因为lastName是子组件模板中的内容,在父组件模板中是访问不到的.
 
 作为一条规则，请记住：
 
-##### 父级模板里的所有内容都是在父级作用域中编译的；子模板里的所有内容都是在子作用域中编译的。
+**父级模板里的所有内容都是在父级作用域中编译的；子模板里的所有内容都是在子作用域中编译的。**
 
-##### 5-1.作用域插槽(scoped slots) - 旧
+#### 5-1.作用域插槽(scoped slots) - 旧
 
 为了让父组件模板中能访问到user,添加如下代码:
 
@@ -326,7 +324,7 @@ slotProps = {
 ```javascript
 components: {
 	currentUser: {
-		template: `<div><h3>后备内容</h3><slot :user="user">{{user.firstName}}</slot></div>`,
+		template: `<div><h3>scope slot演示</h3><slot :user="user">{{user.firstName}}</slot></div>`,
 		data() {
 			return {
 				user: {
@@ -339,11 +337,13 @@ components: {
 }
 ```
 
-绑定在 `<slot>` 元素上的 attribute 被称为**插槽 prop**。我们选择将包含所有插槽 prop 的对象命`slotProps`，但你也可以使用任意你喜欢的名字。
+绑定在 `<slot>` 元素上的 attribute 被称为**插槽 prop**。我们选择将包含所有插槽 prop 的对象命名`slotProps`，但你也可以使用任意你喜欢的名字。
 
 ###### render效果如下:
 
-<img src=".\Vue-slot新旧写法.assets\image-20200527234556050.png" alt="image-20200527234556050" style="zoom:50%;" />
+<img src=".\Vue-slot comparison.assets\image-20200528140507918.png" alt="image-20200528140507918" style="zoom: 25%;" />
+
+**解构插槽prop**
 
 `slot-scope` 的值可以接收任何有效的可以出现在函数定义的参数位置上的 JavaScript 表达式。这意味着在支持的环境下 ([单文件组件](https://cn.vuejs.org/v2/guide/single-file-components.html)或[现代浏览器](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#浏览器兼容))，你也可以在表达式中使用 [ES2015 解构](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#解构对象)，如下:
 
@@ -370,9 +370,33 @@ user//{
 	}
 ```
 
-render与上面的代码相同
+render效果与上面的代码相同
 
-##### 5-2.作用域插槽(scoped slots) -新
+也可以利用解构默认值会插槽添加后备内容
+
+```html
+<current-user>
+	<template slot-scope="{user={lastName:'Lei'}}">
+        {{ user.lastName }}
+	</template>
+</current-user>
+```
+
+当插槽Prop为`undefined`:
+
+```javascript
+components: {
+	currentUser: {
+		template: `<div><h3>scope slot演示</h3><slot></slot></div>`,
+	}
+}
+```
+
+render效果如下:
+
+<img src=".\Vue-slot comparison.assets\image-20200528140507918.png" style="zoom: 25%;" />
+
+#### 5-2.作用域插槽(scoped slots) -新
 
 ###### 父组件中代码如下:
 
@@ -384,7 +408,7 @@ render与上面的代码相同
 </current-user>
 ```
 
-##### 或
+###### 或
 
 ```html
 <current-user>
@@ -394,7 +418,7 @@ render与上面的代码相同
 </current-user>
 ```
 
-##### 独占默认插槽的缩写写法
+##### **独占默认插槽的缩写写法**
 
 在上述情况下，当被提供的内容*只有默认*插槽时，组件的标签才可以被当作插槽的模板来使用.这样我们就可以把 `v-slot` 直接用在组件上：
 
@@ -426,7 +450,7 @@ render与上面的代码相同
 
 ###### 报错:
 
-<img src=".\Vue-slot新旧写法.assets\image-20200528002851416.png" alt="image-20200528002851416" style="zoom:50%;" />
+<img src=".\Vue-slot comparison.assets\image-20200528002851416.png" alt="image-20200528002851416" style="zoom: 25%;" />
 
 To avoid scope ambiguity, the default slot should also use <template> syntax when there are other named slots.为了避免作用域不明确,当存在其他具名插槽混用时,默认插槽应该用<template> 标签语法.
 
@@ -449,7 +473,7 @@ To avoid scope ambiguity, the default slot should also use <template> syntax whe
 ```javascript
 components: {
 	currentUser: {
-		template: `<div><h3>后备内容</h3><slot :user="user">{{user.firstName}}</slot><br><slot name="other" :otherUser="otherUser"></slot></div>`,
+		template: `<div><h3>scope slot演示</h3><slot :user="user">{{user.firstName}}</slot><br><slot name="other" :otherUser="otherUser"></slot></div>`,
 		data() {
 			return {
 				user: {
@@ -465,4 +489,4 @@ components: {
 
 ###### render效果如下:
 
-<img src=".\Vue-slot新旧写法.assets\image-20200528003613802.png" alt="image-20200528003613802" style="zoom:50%;" />
+<img src=".\Vue-slot comparison.assets\image-20200528140832014.png" alt="image-20200528140832014" style="zoom: 25%;" />
