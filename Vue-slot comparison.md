@@ -24,7 +24,7 @@
 </base-layout>
 ```
 
-###### 或
+**或**
 
 ```vue
 <base-layout>
@@ -108,7 +108,7 @@ components: {
 </base-layout>
 ```
 
-###### 或(缩写 v-slot: = #)
+ **或(缩写 v-slot: = #)**
 
 ```html
 <base-layout>
@@ -408,7 +408,7 @@ render效果如下:
 </current-user>
 ```
 
-###### 或
+**或**
 
 ```html
 <current-user>
@@ -454,7 +454,7 @@ render效果如下:
 
 To avoid scope ambiguity, the default slot should also use <template> syntax when there are other named slots.为了避免作用域不明确,当存在其他具名插槽混用时,默认插槽应该用<template> 标签语法.
 
-###### 即:
+**即:**
 
 ```html
 <current-user>

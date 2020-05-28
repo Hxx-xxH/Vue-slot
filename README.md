@@ -24,7 +24,7 @@
 </base-layout>
 ```
 
-###### 或
+**或**
 
 ```vue
 <base-layout>
@@ -51,7 +51,7 @@ components: {
 
 ###### render效果如下:
 
-<img src="C:/Users/HSJ/Desktop/markdown/Vue-slot新旧写法/Vue-slot comparison.assets/image-20200527201022025.png" style="zoom:25%;" />
+<img src="./Vue-slot comparison.assets/image-20200527201022025.png" style="zoom:25%;" />
 
 #### 1-2.默认插槽(default slots) - 旧
 
@@ -86,7 +86,7 @@ components: {
 
 ###### render效果如下:
 
-<img src="C:/Users/HSJ/Desktop/markdown/Vue-slot新旧写法/Vue-slot comparison.assets/image-20200527202229484.png" alt="image-20200527202229484" style="zoom: 25%;" />
+<img src="./Vue-slot comparison.assets/image-20200527202229484.png" alt="image-20200527202229484" style="zoom: 25%;" />
 
 #### 2-1.具名插槽(named slots) - 新
 
@@ -108,7 +108,7 @@ components: {
 </base-layout>
 ```
 
-###### 或(缩写 v-slot: = #)
+ **或(缩写 v-slot: = #)**
 
 ```html
 <base-layout>
@@ -138,7 +138,7 @@ components: {
 
 ###### render效果如下:
 
-<img src="C:/Users/HSJ/Desktop/markdown/Vue-slot新旧写法/Vue-slot comparison.assets/image-20200527201022025.png" style="zoom: 25%;" />
+<img src="./Vue-slot comparison.assets/image-20200527201022025.png" style="zoom: 25%;" />
 
 #### 2-2.默认插槽(default slots)-新
 
@@ -193,7 +193,7 @@ components: {
     }
 ```
 
-<img src="C:/Users/HSJ/Desktop/markdown/Vue-slot新旧写法/Vue-slot comparison.assets/image-20200527202229484.png" style="zoom: 25%;" />
+<img src="./Vue-slot comparison.assets/image-20200527202229484.png" style="zoom: 25%;" />
 
 #### 3.后备内容(Fallback Content)
 
@@ -218,7 +218,7 @@ components: {
 
 ###### render效果如下:
 
-<img src="C:/Users/HSJ/Desktop/markdown/Vue-slot新旧写法/Vue-slot comparison.assets/image-20200528135514962.png" alt="image-20200528135514962" style="zoom: 25%;" />
+<img src="./Vue-slot comparison.assets/image-20200528135514962.png" alt="image-20200528135514962" style="zoom: 25%;" />
 
 ###### 当组件内添加内容替换后备内容:
 
@@ -230,7 +230,7 @@ components: {
 
 ###### render效果如下:
 
-<img src="C:/Users/HSJ/Desktop/markdown/Vue-slot新旧写法/Vue-slot comparison.assets/image-20200528135655090.png" alt="image-20200528135655090" style="zoom: 25%;" />
+<img src="./Vue-slot comparison.assets/image-20200528135655090.png" alt="image-20200528135655090" style="zoom: 25%;" />
 
 #### 4.编译作用域(compilation scope)
 
@@ -263,7 +263,7 @@ components: {
 
 ###### render效果如下:
 
-<img src="C:/Users/HSJ/Desktop/markdown/Vue-slot新旧写法/Vue-slot comparison.assets/image-20200528135802139.png" alt="image-20200528135802139" style="zoom:25%;" />
+<img src="./Vue-slot comparison.assets/image-20200528135802139.png" alt="image-20200528135802139" style="zoom:25%;" />
 
 ###### 当组件内添加内容用{{user.lastName}}替换后备内容:
 
@@ -275,7 +275,7 @@ components: {
 
 ###### render效果如下:
 
-<img src="C:/Users/HSJ/Desktop/markdown/Vue-slot新旧写法/Vue-slot comparison.assets/image-20200527231839192.png" alt="image-20200527231839192" style="zoom: 25%;" />
+<img src="./Vue-slot comparison.assets/image-20200527231839192.png" alt="image-20200527231839192" style="zoom: 25%;" />
 
 此时{{user.lastName}}无法被编译,因为lastName是子组件模板中的内容,在父组件模板中是访问不到的.
 
@@ -341,7 +341,7 @@ components: {
 
 ###### render效果如下:
 
-<img src="C:/Users/HSJ/Desktop/markdown/Vue-slot新旧写法/Vue-slot comparison.assets/image-20200528140507918.png" alt="image-20200528140507918" style="zoom: 25%;" />
+<img src="./Vue-slot comparison.assets/image-20200528140507918.png" alt="image-20200528140507918" style="zoom: 25%;" />
 
 **解构插槽props(Destructuring Slot Props)**
 
@@ -394,7 +394,7 @@ components: {
 
 render效果如下:
 
-<img src="C:/Users/HSJ/Desktop/markdown/Vue-slot新旧写法/Vue-slot comparison.assets/image-20200528140507918.png" style="zoom: 25%;" />
+<img src="./Vue-slot comparison.assets/image-20200528140507918.png" style="zoom: 25%;" />
 
 #### 5-2.作用域插槽(scoped slots) -新
 
@@ -408,7 +408,7 @@ render效果如下:
 </current-user>
 ```
 
-###### 或
+**或**
 
 ```html
 <current-user>
@@ -450,11 +450,11 @@ render效果如下:
 
 ###### 报错:
 
-<img src="C:/Users/HSJ/Desktop/markdown/Vue-slot新旧写法/Vue-slot comparison.assets/image-20200528002851416.png" alt="image-20200528002851416" style="zoom: 25%;" />
+<img src="./Vue-slot comparison.assets/image-20200528002851416.png" alt="image-20200528002851416" style="zoom: 25%;" />
 
 To avoid scope ambiguity, the default slot should also use <template> syntax when there are other named slots.为了避免作用域不明确,当存在其他具名插槽混用时,默认插槽应该用<template> 标签语法.
 
-###### 即:
+**即:**
 
 ```html
 <current-user>
