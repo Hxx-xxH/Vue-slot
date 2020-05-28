@@ -343,7 +343,7 @@ components: {
 
 <img src=".\Vue-slot comparison.assets\image-20200528140507918.png" alt="image-20200528140507918" style="zoom: 25%;" />
 
-**解构插槽prop**
+**解构插槽props(Destructuring Slot Props)**
 
 `slot-scope` 的值可以接收任何有效的可以出现在函数定义的参数位置上的 JavaScript 表达式。这意味着在支持的环境下 ([单文件组件](https://cn.vuejs.org/v2/guide/single-file-components.html)或[现代浏览器](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#浏览器兼容))，你也可以在表达式中使用 [ES2015 解构](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#解构对象)，如下:
 
