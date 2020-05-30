@@ -140,6 +140,26 @@ components: {
 
 <img src=".\Vue-slot comparison.assets\image-20200527201022025.png" style="zoom: 25%;" />
 
+**另外**,v-slot不支持旧语法中的直接写在标签上:
+
+```vue
+<current-user>
+	<h1 v-slot:header>Here might be a page title</h1>
+</current-user>
+```
+
+**或**
+
+```vue
+<current-user>
+	<h1 #header>Here might be a page title</h1>
+</current-user>
+```
+
+**不然**,会报错:
+
+<img src=".\Vue-slot comparison.assets\image-20200530120133900.png" alt="image-20200530120133900" style="zoom:25%;" />
+
 #### 2-2.默认插槽(default slots)-新
 
 `<template>` 元素中的所有内容都将会被传入相应的插槽。任何没有被包裹在带有 `v-slot` 的 `<template>` 中的内容都会被视为**默认插槽**的内容。
@@ -490,3 +510,16 @@ components: {
 ###### render效果如下:
 
 <img src=".\Vue-slot comparison.assets\image-20200528140832014.png" alt="image-20200528140832014" style="zoom: 25%;" />
+
+#### 6-1.动态插槽名(Dynamic Slot Names)
+
+###### 示例:
+
+```vue
+<base-layout>
+  <template v-slot:[dynamicSlotName]>
+    ...
+  </template>
+</base-layout>
+```
+
