@@ -561,8 +561,8 @@ components: {
 
 
 
-#### 参考:
+###### 参考:
 
-[Vue官方文档]:https://cn.vuejs.org/v2/guide/components-slots.html
-[Vue-new-slot-syntax]:https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md
+[^Vue官方文档]:https://cn.vuejs.org/v2/guide/components-slots.html
+[^Vue-new-slot-syntax]:https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md
 
