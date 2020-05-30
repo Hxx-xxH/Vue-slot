@@ -160,6 +160,8 @@ components: {
 
 <img src=".\Vue-slot comparison.assets\image-20200530120133900.png" alt="image-20200530120133900" style="zoom:25%;" />
 
+**v-slot只能用在组件或`template`模板上**
+
 #### 2-2.默认插槽(default slots)-新
 
 `<template>` 元素中的所有内容都将会被传入相应的插槽。任何没有被包裹在带有 `v-slot` 的 `<template>` 中的内容都会被视为**默认插槽**的内容。
