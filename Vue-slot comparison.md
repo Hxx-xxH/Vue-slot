@@ -513,7 +513,7 @@ components: {
 
 <img src=".\Vue-slot comparison.assets\image-20200528140832014.png" alt="image-20200528140832014" style="zoom: 25%;" />
 
-#### 6-1.动态插槽名(Dynamic Slot Names)
+#### 6.动态插槽名(Dynamic Slot Names)
 
 ###### 示例:
 
@@ -524,4 +524,45 @@ components: {
   </template>
 </base-layout>
 ```
+
+#### 7.具名/默认插槽的嵌套和混合用法
+
+```vue
+<!-- old -->
+<foo>
+  <bar slot="one" slot-scope="one">
+    <div slot-scope="bar">
+      {{ one }} {{ bar }}
+    </div>
+  </bar>
+
+  <bar slot="two" slot-scope="two">
+    <div slot-scope="bar">
+      {{ two }} {{ bar }}
+    </div>
+  </bar>
+</foo>
+
+<!-- new -->
+<foo>
+  <template v-slot:one="one">
+    <bar v-slot="bar">
+      <div>{{ one }} {{ bar }}</div>
+    </bar>
+  </template>
+
+  <template v-slot:two="two">
+    <bar v-slot="bar">
+      <div>{{ two }} {{ bar }}</div>
+    </bar>
+  </template>
+</foo>
+```
+
+
+
+#### 参考:
+
+[Vue官方文档]:https://cn.vuejs.org/v2/guide/components-slots.html
+[Vue-new-slot-syntax]:https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md
 
