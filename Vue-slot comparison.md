@@ -1,4 +1,8 @@
-## Vue-slot新旧语法笔记
+## Vue-slot新旧语法对比 (Vue-slot syntax comparison:New vs. Old)
+
+[TOC]
+
+
 
 #### 前言
 
@@ -440,7 +444,7 @@ render效果如下:
 </current-user>
 ```
 
-##### **独占默认插槽的缩写写法**
+ **独占默认插槽的缩写写法**
 
 在上述情况下，当被提供的内容*只有默认*插槽时，组件的标签才可以被当作插槽的模板来使用.这样我们就可以把 `v-slot` 直接用在组件上：
 
@@ -561,8 +565,8 @@ components: {
 
 
 
-###### 参考:
+### 参考:
 
-[^Vue官方文档]:https://cn.vuejs.org/v2/guide/components-slots.html
-[^Vue-new-slot-syntax]:https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md
+1.Vue官方文档:https://cn.vuejs.org/v2/guide/components-slots.html
 
+2.Vue-new-slot-syntax:https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md
