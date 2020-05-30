@@ -140,6 +140,28 @@ components: {
 
 <img src="./Vue-slot comparison.assets/image-20200527201022025.png" style="zoom: 25%;" />
 
+**另外**,v-slot不支持旧语法中的直接写在标签上:
+
+```vue
+<current-user>
+	<h1 v-slot:header>Here might be a page title</h1>
+</current-user>
+```
+
+**或**
+
+```vue
+<current-user>
+	<h1 #header>Here might be a page title</h1>
+</current-user>
+```
+
+**不然**,会报错:
+
+<img src="./Vue-slot comparison.assets/image-20200530120133900.png" alt="image-20200530120133900" style="zoom:25%;" />
+
+**v-slot只能用在组件或`template`模板上**
+
 #### 2-2.默认插槽(default slots)-新
 
 `<template>` 元素中的所有内容都将会被传入相应的插槽。任何没有被包裹在带有 `v-slot` 的 `<template>` 中的内容都会被视为**默认插槽**的内容。
@@ -489,4 +511,58 @@ components: {
 
 ###### render效果如下:
 
-<img src=".\Vue-slot comparison.assets\image-20200528140832014.png" alt="image-20200528140832014" style="zoom: 25%;" />
+<img src="./Vue-slot comparison.assets/image-20200528140832014.png" alt="image-20200528140832014" style="zoom: 25%;" />
+
+#### 6.动态插槽名(Dynamic Slot Names)
+
+###### 示例:
+
+```vue
+<base-layout>
+  <template v-slot:[dynamicSlotName]>
+    ...
+  </template>
+</base-layout>
+```
+
+#### 7.具名/默认插槽的嵌套和混合用法
+
+```vue
+<!-- old -->
+<foo>
+  <bar slot="one" slot-scope="one">
+    <div slot-scope="bar">
+      {{ one }} {{ bar }}
+    </div>
+  </bar>
+
+  <bar slot="two" slot-scope="two">
+    <div slot-scope="bar">
+      {{ two }} {{ bar }}
+    </div>
+  </bar>
+</foo>
+
+<!-- new -->
+<foo>
+  <template v-slot:one="one">
+    <bar v-slot="bar">
+      <div>{{ one }} {{ bar }}</div>
+    </bar>
+  </template>
+
+  <template v-slot:two="two">
+    <bar v-slot="bar">
+      <div>{{ two }} {{ bar }}</div>
+    </bar>
+  </template>
+</foo>
+```
+
+
+
+#### 参考:
+
+[Vue官方文档]:https://cn.vuejs.org/v2/guide/components-slots.html
+[Vue-new-slot-syntax]:https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md
+
