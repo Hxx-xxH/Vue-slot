@@ -478,7 +478,7 @@ render效果如下:
 
 <img src=".\Vue-slot comparison.assets\image-20200528002851416.png" alt="image-20200528002851416" style="zoom: 25%;" />
 
-To avoid scope ambiguity, the default slot should also use <template> syntax when there are other named slots.为了避免作用域不明确,当存在其他具名插槽混用时,默认插槽应该用<template> 标签语法.
+To avoid scope ambiguity, the default slot should also use `template` syntax when there are other named slots.为了避免作用域不明确,当存在其他具名插槽混用时,默认插槽应该用`template` 标签语法.
 
 **即:**
 
